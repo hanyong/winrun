@@ -32,9 +32,10 @@ def main():
 	subprocess.call(["ln", "-sf", os.path.join(selfDir, "winrunclient.py"), os.path.join(cygwinDir, "winrunclient")])
 	print u"为了能在 cygwin 中调用启动器，请在 cygwin PATH 前面添加：\n\t", cygwinDir
 	os.environ["PATH"] = os.path.pathsep.join([cygwinDir, os.environ["PATH"]])
-	print u"添加启动器 cmd ..."
-	subprocess.call(["ln", "-sf", "winrunclient", os.path.join(cygwinDir, "cmd")])
-	print u"创建 windows winrun.py 符号连接"
+	print u"添加 cygwin 启动器 ..."
+	for e in ["cmd", "explorer"]:
+		subprocess.call(["ln", "-sf", "winrunclient", os.path.join(cygwinDir, e)])
+	print u"创建 windows 下 winrun.py 符号连接"
 	for e in ["winrun.py", "winrun-server.py"]:
 		target = os.path.join(instDir, e)
 		if os.path.islink(target) or os.path.exists(target):
