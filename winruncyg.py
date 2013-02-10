@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 # -*- 编码: utf-8 -*-
 
-import os, subprocess
+import sys, os, subprocess
 
 import winrun
 
@@ -41,9 +41,18 @@ def convertArgument(e):
 
 
 def getAlternativeExecutableByWhich(command):
-	out = subprocess.check_output(["which", "-a", command]).strip().splitlines()
-	if len(out) > 1:
-		return out[1]
+	"""通过 which 命令查找 command 的候选 executable 路径。
+	尽量不使用第一个可选路径，避免第一个路径是启动器时循环调用启动器。
+	"""
+	try:
+		pathList = subprocess.check_output(["which", "-a", command]).strip().splitlines()
+	except:
+		return
+	pathList.reverse()
+	currentPath = sys.argv[0]
+	for e in pathList:
+		if e != currentPath:
+			return e
 
 
 class WinRunCyg(winrun.WinRun):
