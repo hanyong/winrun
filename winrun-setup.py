@@ -44,7 +44,7 @@ def main():
 			os.remove(target)
 		subprocess.call(["winrun", "cmd", "//c", "mklink", target, os.path.join(selfDir, e)])
 	print u"为了能在 windows 中调用启动器，请在 windows 的 PATH 中添加："
-	print "\t" + subprocess.check_output(["cygpath", "-w", instDir])
+	print "\t" + subprocess.check_output(["cygpath", "-w", instDir]).strip()
 	print u'为了方便在 windows 命令提示符下调用启动器（python脚本），请在 windows 的 PATHEXT 添加 ";PY;PYW"'
 	print u"为了方便在 cygwin 下创建 windows 符号连接，建议在 .bashrc 中设置："
 	print """\talias mklink='winrun cmd //c mklink'"""
