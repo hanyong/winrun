@@ -44,10 +44,14 @@ class WinRunAdd(object):
 		if not cygOnly:
 			print "mklink:", name
 			os.chdir(configDir)
+			if os.path.islink(name) or os.path.exists(name):
+				os.remove(name)
 			subprocess.call(["winrun", "cmd", "//c", "mklink", name, path])
 			target = name + (gui and ".pyw" or ".py")
 			print "mklink", target
 			os.chdir(instDir)
+			if os.path.islink(target) or os.path.exists(target):
+				os.remove(target)
 			subprocess.call(["winrun", "cmd", "//c", "mklink", target, "winrun.py"])
 
 		src = gui and "winrunclient" or "winrun"
