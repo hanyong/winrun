@@ -3,8 +3,10 @@ winrun
 
 windows 程序启动器。帮助命令行用户在 cygwin 下调用 windows 程序，如 "notepad++ /tmp/1.c", "explorer ~" 等。
 
-# 安装使用说明：
-在 cygwin 下安装本程序，但安装前本机 win7 系统和 cygwin 都需要分别安装 python 2.7，本机 win7 还需要安装 pywin32。
+安装使用说明
+===
+
+安装前本机 win7 系统和 cygwin 都需要分别安装 python 2.7，本机 win7 还需要安装 pywin32。
 以下步骤如果没有特殊说明，均在 cygwin 下执行。
 
 1. clone 代码到一个目录下，进入代码目录。安装过程只是创建符号连接，因此安装完成后代码目录需要继续保留。
@@ -39,7 +41,8 @@ windows 程序启动器。帮助命令行用户在 cygwin 下调用 windows 程�
         
         添加完成后通过 npp 即可启动 notepad++，并且可以自动转换 cygwin 路径参数。
 
-# 注意
+注意
+===
 - 在 cygwin 下，默认情况下，命令行程序通过 winrun 启动，不依赖 winrun-server，
 GUI 程序通过 winrunclient 启动，需要依赖 winrun-server。
 
