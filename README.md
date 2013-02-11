@@ -19,7 +19,7 @@ windows 程序启动器。帮助命令行用户在 cygwin 下调用 windows 程�
         python winrun-setup.py /home/shortcut
 
 1. 按照提示编辑 .bash_profile 添加路径到 PATH，注意 cygwin 下必须添加到 PATH 的前面。
-修改 win7 环境变量 PATH，建议添加到 PATH 后面即可。修改 win7 环境变量 PATHEXT，添加 ";PY;PYW"。
+按照提示修改 win7 环境变量 PATH 添加路径，建议添加到 PATH 后面即可。修改 win7 环境变量 PATHEXT，添加 ";PY;PYW"。
 重启 windows 命令提示符和 cygwin。
 
 1. 在 windows 下按 Win + R，输入 "winrun-server.py" 或 "winrun-server" （设置了 PATHEXT），启动 winrun-server。
