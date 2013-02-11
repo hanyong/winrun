@@ -30,6 +30,7 @@ def main():
 	print u"创建 cygwin 下 winrun 符号连接..."
 	subprocess.call(["ln", "-sf", os.path.join(selfDir, "winruncyg.py"), os.path.join(cygwinDir, "winrun")])
 	subprocess.call(["ln", "-sf", os.path.join(selfDir, "winrunclient.py"), os.path.join(cygwinDir, "winrunclient")])
+	subprocess.call(["ln", "-sf", os.path.join(selfDir, "winrun-add.py"), os.path.join(cygwinDir, "winrun-add")])
 	print u"为了能在 cygwin 中调用启动器，请在 cygwin PATH 前面添加：\n\t", cygwinDir
 	os.environ["PATH"] = os.path.pathsep.join([cygwinDir, os.environ["PATH"]])
 	print u"添加 cygwin 启动器 ..."
@@ -42,7 +43,8 @@ def main():
 			os.remove(target)
 		subprocess.call(["winrun", "cmd", "//c", "mklink", target, os.path.join(selfDir, e)])
 	print u"为了能在 windows 中调用启动器，请在 windows PATH 中添加：\n\t", instDir
-	print u"为方便在 cygwin 下创建 windows 符号连接，建议在 .bashrc 中设置："
+	print u'为了方便在 windows 命令提示符下调用启动器（python脚本），请在 windows PATHEXT 添加 ";PY;PYW"'
+	print u"为了方便在 cygwin 下创建 windows 符号连接，建议在 .bashrc 中设置："
 	print """\talias mklink='winrun cmd //c mklink'"""
 
 
