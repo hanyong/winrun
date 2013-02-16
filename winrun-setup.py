@@ -38,7 +38,7 @@ def main():
 	for e in ["cmd", "explorer"]:
 		subprocess.call(["ln", "-sf", "winrunclient", os.path.join(cygwinDir, e)])
 	print u"创建 windows 下 winrun.py 符号连接"
-	for e in ["winrun.py", "winrun-server.py"]:
+	for e in ["winrun.py", "winrun-server.py", "winrun-server.exe.py"]:
 		target = os.path.join(instDir, e)
 		if os.path.islink(target) or os.path.exists(target):
 			os.remove(target)
