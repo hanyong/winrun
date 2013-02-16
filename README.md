@@ -22,9 +22,9 @@ windows 程序启动器。帮助命令行用户在 cygwin 下调用 windows 程�
 按照提示修改 win7 环境变量 PATH 添加路径，建议添加到 PATH 后面即可。修改 win7 环境变量 PATHEXT，添加 ";PY;PYW"。
 重启 windows 命令提示符和 cygwin。
 
-1. 在 windows 下按 Win + R，输入 "winrun-server.py"，启动 winrun-server。
+1. 在 windows 下按 Win + R，输入 "winrun-server"，启动 winrun-server。
     
-        winrun-server.py
+        winrun-server
 
 1. 在 cygwin 下执行 winrun-add 添加启动器。启动器有两种。
     1. 一种是已经在 windows 下的 PATH 中存在的程序，希望在 cygwin 下执行时添加一层包装，如转换参数等，
