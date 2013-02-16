@@ -36,3 +36,9 @@ nosetests.xml
 
 # idea
 .idea
+
+# cmake
+CMakeFiles
+CMakeCache.txt
+Makefile
+cmake_install.cmake
