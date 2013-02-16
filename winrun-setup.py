@@ -43,6 +43,7 @@ def main():
 		if os.path.islink(target) or os.path.exists(target):
 			os.remove(target)
 		subprocess.call(["winrun", "cmd", "//c", "mklink", target, os.path.join(selfDir, e)])
+	subprocess.call(["cp", "-a", os.path.join(selfDir, "winrun-server.exe"), instDir + "/"])
 	print u"为了能在 windows 中调用启动器，请在 windows 的 PATH 中添加："
 	print "\t" + subprocess.check_output(["cygpath", "-w", instDir]).strip()
 	print u'为了方便在 windows 命令提示符下调用启动器（python脚本），请在 windows 的 PATHEXT 添加 ";PY;PYW"'
