@@ -15,10 +15,7 @@ windows 程序启动器。帮助命令行用户在 cygwin 下调用 windows 程�
         cd winrun
 
 1. 执行安装脚本 winrun-setup.py，接受一个参数，表示安装路径。下面以安装到 /home/shortcut 目录下为例。
-
-        python winrun-setup.py /home/shortcut
-
-如果安装后有更新，更新代码覆盖安装即可。
+    安装后有更新，更新代码覆盖安装即可。
 
         git pull
         python winrun-setup.py /home/shortcut
