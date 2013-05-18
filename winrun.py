@@ -42,6 +42,10 @@ class WinRun(object):
 		self.init()
 		print "executable: %s\nargs: %s" % (self.executable, self.args)
 		# 在 windows 上, exec() 有 bug, subprocess.call() 感觉更好.
+		# 使用 mbcs 编码，临时修正参数有 unicode 时无法启动的问题
+		# TODO: pythonw 启动还是有问题, python ok (winrun comm ok).
+		self.args = [e.encode("mbcs") for e in self.args]
+		self.executable = self.executable.encode("mbcs")
 		subprocess.call(self.args, executable=self.executable)
 
 	def init(self):
