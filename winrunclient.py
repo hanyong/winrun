@@ -30,7 +30,7 @@ class WinRunClient(WinRunCyg):
 		self.initServerAddress()
 
 	def initName(self):
-		self.name = "winrunclient"
+		self.name = "winc"
 
 	def initExecutable(self):
 		"""传递给 windows 运行时, 将 executable 路径转换成 windows 格式."""
